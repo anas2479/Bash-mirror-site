@@ -4,8 +4,8 @@ module.exports = {
     entry: './src/js/index.js',
 
     output:{
-        path: path.resolve(__dirname, 'lib/js'),
-        filename:'./dist/js/index.js',
+        path: path.resolve(__dirname, 'dist/js'),
+        filename:'index.js',
     },
     mode : 'production'
 }
