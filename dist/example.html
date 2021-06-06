@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Bash-Mirror Example</title>
+
+    <style>
+        .bash-mirror{
+            font-family: 'Press Start 2P', cursive;
+        }
+    </style>
+</head>
+
+<body class="bash-mirror">
+    
+</body>
+<script src="https://cdn.jsdelivr.net/npm/@anas2479/bash-mirror@2.0.0-beta.2/lib/js/bash-mirror.js"></script>
+
+<script>
+
+    
+// Example Page
+let exampleEl = document.body
+let exampleApp = new BashMirror.Bash(exampleEl, {
+    sign:'🔥'
+})
+exampleApp.outPut(`<h4>Welcome to Bash-Mirror Example</h4>`)
+exampleApp.outPut(`Here are some commands you can run.`)
+
+
+
+function add(args){
+  
+    let result = 0
+    for (let index = 0; index < args.length; index++) {
+        let element = args[index];
+        result = result + Number(element)
+    }
+    exampleApp.outPut(`${result}`)
+}
+
+
+exampleApp.newCommand({
+    name:'add',
+    function:add,
+    description:'Adds together a list of numbers'
+})
+
+exampleApp.runCommand('help')
+</script>
+</html>
