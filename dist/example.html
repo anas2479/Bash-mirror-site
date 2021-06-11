@@ -19,7 +19,7 @@
 <body class="bash-mirror">
     
 </body>
-<script src="https://cdn.jsdelivr.net/npm/@anas2479/bash-mirror@2.0.0-beta.2/lib/js/bash-mirror.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@anas2479/bash-mirror/lib/js/bash-mirror.js"></script>
 
 <script>
 
@@ -29,9 +29,6 @@ let exampleEl = document.body
 let exampleApp = new BashMirror.Bash(exampleEl, {
     sign:'🔥'
 })
-exampleApp.outPut(`<h4>Welcome to Bash-Mirror Example</h4>`)
-exampleApp.outPut(`Here are some commands you can run.`)
-
 
 
 function add(args){
@@ -51,6 +48,26 @@ exampleApp.newCommand({
     description:'Adds together a list of numbers'
 })
 
-exampleApp.runCommand('help')
+exampleApp.input(`What's your name?`, (name)=>{
+     if(name.length){
+         exampleApp.outPut(`🎉 Welcome <b>${_.capitalize(name)}</b>. `)
+
+         exampleApp.input(`So, <b>${_.capitalize(name)}</b>,  you new to Bash Mirror? - Y or N`, (answer)=>{
+             if(answer === 'y' || answer === 'Y'){
+                 exampleApp.outPut(`
+                 <p>That's perfectly fine <b>${_.capitalize(name)}</b> 😀.</p>
+                 <p> You can start with the documentation <a href="https://www.notion.so/Bash-Mirror-3c01c079baef45a6be1e86132e853a0c">here</a>,</p>
+                 <p> or you can check out the <a href="https://github.com/anas2479/bash-mirror">Github repo</a>.</p>
+
+                 `)
+             }else if( answer === 'n'|| answer === 'N'){
+                 exampleApp.outPut(`
+                 <p> Well <b>${_.capitalize(name)}</b>, Bash Mirror is at v${bash_v} currently.</p> <p> You can check out whats new in this version at <a href="https://github.com/anas2479/bash-mirror/releases/tag/v${bash_v}">Github</a>
+                 `)
+             }
+         })
+     }
+ })
+
 </script>
 </html>
