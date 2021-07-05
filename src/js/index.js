@@ -1,5 +1,6 @@
  const bash = require('@anas2479/bash-mirror')
  const bash_v = require('@anas2479/bash-mirror/package.json').version
+ const _ = require('lodash')
 
  let bashElement = document.getElementById('mybash')
 
